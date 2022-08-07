@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FRUITS AND VEGETABLES DETECTION</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+<br>
+  <br>
+  <div id="mid">
+      <center>
+          <div id="model1">
+              <div class="row row-cols-1 row-cols-md-2 mb-2  text-left forms-model h-100 d-flex align-items-center justify-content-center">
+        <div class="col">
+          <div class="card mb-6 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal text-center"> CONVOLUTIONAL LAYER NETWORK MODEL</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning" role="alert">
+        Select image to be recognized below...
+          <br>
+          We request you to upload the image in '.jpg' format only.
+      </div>
+              <form method="POST" action="{{url_for('predictor2')}}" enctype="multipart/form-data">
+                <label>Image:</label>
+                <input type="file" name='image' class='btn' required><br><br>
+
+                <input type="submit" class="btn btn-warning text-center">
+              </form>
+              <br>
+              <a href="/" class="btn btn-outline-danger" tabindex="-1" role="button" aria-disabled="true">Reset</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+          <br>
+          <div id="mid2" >
+              <h4>🔍 HOW DOES THIS TOOL WORK ?</h4>
+            <h5 class="req">This tool makes its predictions based on the predictions made by </h5>
+            <h5 class="req"> a Deep Learning model trained on over 90,000 fruits and vegetable images.</h5>
+            <h5 class="req">Model used around 2,660,000 parameters before predicting the result.</h5>
+            <h5 class="req">This Model has an accuracy of around 97.3%.</h5>
+          </div>
+      </center>
+  </div>
+</body>
+
+</html>

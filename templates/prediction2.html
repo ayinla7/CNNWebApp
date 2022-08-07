@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FRUITS AND VEGETABLES DETECTION</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+<body class="clr">
+
+    <div id="model_brain">
+        <br><br>
+        <div class="container prediction">
+            <center>
+                <div class="row row-cols-1 row-cols-md-2 mb-2  text-left forms-model h-100 d-flex align-items-center justify-content-center">
+                    <div class="col">
+                        <div class="mb-4 rounded-3 diagnosis">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal text-center c-header">MODEL PREDICTION</h4>
+                        <hr>
+                    </div>
+                    <div class="card-body">
+{#                        <h3 class="card-title pricing-card-title">Name: {{data[1]}}</h3>#}
+                        <br>
+                        <div class="card-body" text-center>
+                            <img src="static\user_images\{{data[1]}}.jpg" alt="User Image" class="img-card" width="100" height="100">
+                        </div>
+                        <br>
+
+                        <h3 class="card-title pricing-card-title">Found: <B>{{data[0]}}</B></h3>
+                        <h5 class="card-title pricing-card-title">Percentage accuracy: <B>{{data[2]}}</B></h5>
+
+                        <!--</h3>button type="button" class="w-100 btn btn-lg btn-outline-danger">{{data[0]}}</button>-->
+                        <br><br>
+                        <p class="description " role="alert">
+                            <!-- This model has been checked on around 25,000,000 parameters to give the following result. -->
+                            The above result has been predicted by our model by checking on around 2,660,000 parameters.
+                        </p>
+                        <a href="/" class="btn btn-danger " tabindex="-1" role="button" aria-disabled="true">Reset</a>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
