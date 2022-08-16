@@ -110,40 +110,20 @@ def predictor2():
     arr = np.load("CNNlabels5.npy")
     arr = np.sort(arr)
 
-
     labels = pd.DataFrame(train_labels)
     print(labels)
     print(arr[0])
     train_labels_encoded = la.fit_transform(labels[0])
-
-
     img = np.expand_dims(img, axis=0)
-
-    # la = LabelEncoder()
-    # pred_t = np.argmax(model2.predict(img), axis=1)
-    # prediction_t = la.inverse_transform(pred_t)
-    #
-    # print(pred_t)
-    # COUNT += 1
-    # print(prediction_t[0])
-
     result = model2.predict(img)
     pred_t = np.argmax(result, axis=1)
     prediction_t = la.inverse_transform(pred_t)
-
-
-
-
 
     result = result.squeeze()
     print(result)
 
     COUNT += 1
-
-    # print(arr)
-    # print(train_labels_encoded);
     print(prediction_t)
-
     result = np.array(result.tolist())
     count = 0
     for x in result:
@@ -156,8 +136,13 @@ def predictor2():
             print(str(p) + "%")
             print("final" + str(arr[[count-1]]))
 
-            # print(finalLabels)
-            return render_template('prediction2.html', data=[str(prediction_t[0]), name, str(p) + "%"])
+            if str(prediction_t[0]) == "Banana Lady Finger":
+                finalt = "No fruit found!"
+                p = 0
+            else:
+                finalt = str(prediction_t[0])
+
+            return render_template('prediction2.html', data=[str(finalt), name, str(p) + "%"])
             break
     else:
         p = 100 - (x.squeeze() * 100)
@@ -176,7 +161,7 @@ def load_img():
     global PATH, NAME
     print(PATH, NAME)
     full_filename = os.path.join(app.config['UPLOAD_FOLDER'], f'{NAME}.jpg')
-    print(full_filename)
+    print("this" + full_filename)
     render_template('prediction1.html', name=NAME)
     # return redirect(url_for('static', path=PATH), code=301)
 
